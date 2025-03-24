@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Crop, RotateCcw, FlipHorizontal, FlipVertical, Upload } from "lucide-react";
 
-const ImageDrawer = ({ onClose }) => {
+const ImageDrawer = ({ onClose, onFinalUpload }) => {
   return (
     <motion.div
       initial={{ x: "100%" }}
@@ -22,9 +22,8 @@ const ImageDrawer = ({ onClose }) => {
         </button>
       </div>
 
-      {/* Action Buttons Only */}
+      {/* Action Buttons */}
       <div className="flex-1 flex flex-col justify-center space-y-4">
-        {/* Button Example */}
         <button className="flex items-center justify-center space-x-2 py-3 px-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-xl hover:scale-105 hover:from-indigo-500 hover:to-purple-600 transition-all duration-300 shadow-lg">
           <Crop className="w-5 h-5" />
           <span>Crop</span>
@@ -45,9 +44,12 @@ const ImageDrawer = ({ onClose }) => {
           <span>Flip Vertical</span>
         </button>
 
-        <button className="flex items-center justify-center space-x-2 py-3 px-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold rounded-xl hover:scale-105 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 shadow-lg">
+        <button
+          onClick={onFinalUpload}
+          className="flex items-center justify-center space-x-2 py-3 px-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-semibold rounded-xl hover:scale-105 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 shadow-lg"
+        >
           <Upload className="w-5 h-5" />
-          <span>Replace</span>
+          <span>Final Upload</span>
         </button>
       </div>
     </motion.div>
